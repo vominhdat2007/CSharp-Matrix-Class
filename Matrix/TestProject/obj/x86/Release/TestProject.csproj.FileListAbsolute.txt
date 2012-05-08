@@ -1,0 +1,12 @@
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Release\ResolveAssemblyReference.cache
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Release\ResGen.read.1.tlog
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Release\ResGen.write.1.tlog
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Release\TestProject.MainForm.resources
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Release\TestProject.Properties.Resources.resources
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\bin\Release\TestProject.exe.config
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\bin\Release\TestProject.exe
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\bin\Release\TestProject.pdb
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\bin\Release\Matrix.dll
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\bin\Release\Matrix.pdb
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Release\TestProject.exe
+E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Release\TestProject.pdb

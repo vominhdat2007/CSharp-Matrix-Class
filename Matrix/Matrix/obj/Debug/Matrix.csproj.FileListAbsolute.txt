@@ -1,0 +1,5 @@
+E:\GitHub\CSharp-Matrix-Class\Matrix\Matrix\bin\Debug\Matrix.dll
+E:\GitHub\CSharp-Matrix-Class\Matrix\Matrix\bin\Debug\Matrix.pdb
+E:\GitHub\CSharp-Matrix-Class\Matrix\Matrix\obj\Debug\ResolveAssemblyReference.cache
+E:\GitHub\CSharp-Matrix-Class\Matrix\Matrix\obj\Debug\Matrix.dll
+E:\GitHub\CSharp-Matrix-Class\Matrix\Matrix\obj\Debug\Matrix.pdb
