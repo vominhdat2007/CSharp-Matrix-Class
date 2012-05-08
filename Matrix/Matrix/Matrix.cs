@@ -7,14 +7,19 @@ namespace Matrix
 
     /// <summary>
     /// A instance of a matrix and perform operators on matrices.
-    /// <remarks>
-    ///     Author: DatVM
-    ///     Version: 1.0
-    ///     Since: 2012-May-08
-    /// </remarks>
+    /// 
+    /// Author: DatVM
+    /// Version: 1.0
+    /// Since: 2012-May-08
     /// </summary>
     public class Matrix
     {
+
+        //===============================================================================//
+        // Variables
+        //===============================================================================//
+
+        
 
         //===============================================================================//
         // Constructors
