@@ -33,11 +33,13 @@
             // 
             // mTextResult
             // 
-            this.mTextResult.Location = new System.Drawing.Point(37, 58);
+            this.mTextResult.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mTextResult.Location = new System.Drawing.Point(0, 0);
             this.mTextResult.Name = "mTextResult";
-            this.mTextResult.Size = new System.Drawing.Size(306, 272);
+            this.mTextResult.Size = new System.Drawing.Size(460, 414);
             this.mTextResult.TabIndex = 0;
             this.mTextResult.Text = "";
+            this.mTextResult.WordWrap = false;
             // 
             // MainForm
             // 

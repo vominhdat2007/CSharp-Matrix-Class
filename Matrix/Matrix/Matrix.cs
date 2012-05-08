@@ -20,7 +20,7 @@ public partial class Matrix
 
     // Data
     private int mRowCount, mColCount;
-    private decimal[,] mData;
+    private decimal[][] mData;
 
     //===============================================================================//
     // Constructors
@@ -33,8 +33,18 @@ public partial class Matrix
     /// <param name="pN">Number of column of the matrix.</param>
     public Matrix(int pM, int pN)
     {
+        // Check parameters
+        if (pM <= 0 || pN <= 0)
+            throw new ArgumentException("The number of row and column of the matrix must be non-negative integers.");
+        
         // Initialize the matrix data
-        this.mData = new decimal[pM, pN];
+        this.mData = new decimal[pM][];
+        for (int row = 0; row < pM; row++)
+        {
+            this.mData[row] = new decimal[pN];
+        }
+
+        // Information
         this.mRowCount = pM;
         this.mColCount = pN;
     }
@@ -52,7 +62,7 @@ public partial class Matrix
         {
             for (int col = 0; col < pN; col++)
             {
-                this.mData[row, col] = pInitializeValue;
+                this.mData[row][col] = pInitializeValue;
             }
         }
     }
@@ -60,12 +70,27 @@ public partial class Matrix
     /// <summary>
     /// Initializes a new instance of the Matrix with the provided array.
     /// </summary>
-    /// <param name="pInitializeValue">The initialize value for the matrix.</param>
-    public Matrix(decimal[,] pInitializeValue)
+    /// <param name="pInitializingValue">The initializing value for the matrix.</param>
+    public Matrix(decimal[][] pInitializingValue)
     {
-        this.mData = (decimal[,])pInitializeValue.Clone();
-        this.mRowCount = pInitializeValue.GetUpperBound(0);
-        this.mColCount = pInitializeValue.GetUpperBound(1);
+        // Check parameters
+        if (pInitializingValue == null)
+            throw new ArgumentNullException("The initializing value is null.");
+        if (pInitializingValue.Length == 0)
+            throw new ArgumentException("The number of rows must be a non-negative integer.");
+        int colCount = pInitializingValue[0].Length;
+        if (colCount == 0)
+            throw new ArgumentException("The number of columns must be a non-negative integer.");
+        for (int col = 1; col < pInitializingValue.Length; col++)
+        {
+            if (pInitializingValue[col].Length != colCount)
+                throw new ArgumentException("The initializing array is jagged.");
+        }
+
+        // Set data
+        this.mData = (decimal[][])pInitializingValue.Clone();
+        this.mRowCount = this.mData.Length;
+        this.mColCount = this.mData[0].Length;
     }
 
     /// <summary>
@@ -92,13 +117,50 @@ public partial class Matrix
         {
             for (int col = 0; col < this.mColCount; col++)
             {
-                result.Append(this.mData[row, col]);
-                if (col < this.mColCount - 1) result.Append(" ");
+                result.Append(Math.Round(this.mData[row][col], 3));
+                if (col < this.mColCount - 1) result.Append("\t\t");
             }
             if (row < this.mRowCount - 1) result.AppendLine();
         }
 
         return result.ToString();
+    }
+
+    /// <summary>
+    /// Get a copy of this matrix.
+    /// </summary>
+    /// <returns>Reference to a copy of this matrix.</returns>
+    public Matrix Clone()
+    {
+        return new Matrix(this);
+    }
+
+    //===============================================================================//
+    // Basic Checkers
+    //===============================================================================//
+    
+    /// <summary>
+    /// Check if the row index is valid. Throw a exception if it is not.
+    /// </summary>
+    /// <param name="pColumn"></param>
+    public void validateRow(int pRow)
+    {
+        if (pRow < 0)
+            throw new ArgumentException("The row index must be a non-negative integer.");
+        if (pRow >= this.mRowCount)
+            throw new ArgumentException("The row index must be smaller than the number of rows.");
+    }
+
+    /// <summary>
+    /// Check if the row index is valid. Throw a exception if it is not.
+    /// </summary>
+    /// <param name="pColumn"></param>
+    public void validateColumn(int pColumn)
+    {
+        if (pColumn < 0)
+            throw new ArgumentException("The column index must be a non-negative integer.");
+        if (pColumn >= this.mColCount)
+            throw new ArgumentException("The column index must be smaller than the number of numbers.");
     }
 
     //===============================================================================//
@@ -131,9 +193,12 @@ public partial class Matrix
     /// <returns>The value of the element at the given column and row in the matrix.</returns>
     public decimal getElementValue(int pRow, int pColumn)
     {
-        if (pRow >= this.mRowCount || pColumn >= this.mColCount)
-            throw new IndexOutOfRangeException("The row or column index is not smaller the matrix bound.");
-        return this.mData[pRow, pColumn];
+        // Validate
+        this.validateRow(pRow);
+        this.validateColumn(pColumn);
+
+        // Return
+        return this.mData[pRow][pColumn];
     }
 
     /// <summary>
@@ -144,9 +209,12 @@ public partial class Matrix
     /// <param name="pValue">The value needed to be set.</param>
     public void setElementValue(int pRow, int pColumn, decimal pValue)
     {
-        if (pRow >= this.mRowCount || pColumn >= this.mColCount)
-            throw new IndexOutOfRangeException("The row or column index is not smaller the matrix bound.");
-        this.mData[pRow, pColumn] = pValue;
+        // Validate
+        this.validateRow(pRow);
+        this.validateColumn(pColumn);
+
+        // Set value
+        this.mData[pRow][pColumn] = pValue;
     }
 
 }

@@ -38,8 +38,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Matrix.Argumented.cs" />
     <Compile Include="Matrix.cs" />
+    <Compile Include="Matrix.Misc.cs" />
     <Compile Include="Matrix.SelfOperatos.cs" />
+    <Compile Include="Matrix.SpecialForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,3 +10,15 @@ E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\ResGen.read.1.tlo
 E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\ResGen.write.1.tlog
 E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\TestProject.exe
 E:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\TestProject.pdb
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\bin\Debug\TestProject.exe.config
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\TestProject.exe
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\TestProject.pdb
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\TestProject.MainForm.resources
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\TestProject.Properties.Resources.resources
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\ResGen.read.1.tlog
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\obj\x86\Debug\ResGen.write.1.tlog
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\bin\Debug\TestProject.exe
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\bin\Debug\TestProject.pdb
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\bin\Debug\Matrix.dll
+D:\GitHub\CSharp-Matrix-Class\Matrix\TestProject\bin\Debug\Matrix.pdb

@@ -6,7 +6,7 @@ public partial class Matrix
 {
 
     //===============================================================================//
-    // Self Operators
+    // Basic Operators
     //===============================================================================//
 
     /// <summary>
@@ -24,7 +24,7 @@ public partial class Matrix
         {
             for (int col = 0; col < this.mColCount; col++)
             {
-                this.mData[row, col] = this.mData[row, col] + pSecondMatrix.mData[row, col];
+                this.mData[row][col] += pSecondMatrix.mData[row][col];
             }
         }
     }
@@ -40,7 +40,7 @@ public partial class Matrix
         {
             for (int col = 0; col < this.mColCount; col++)
             {
-                this.mData[row, col] *= pConstant;
+                this.mData[row][col] *= pConstant;
             }
         }
     }
@@ -51,22 +51,28 @@ public partial class Matrix
     public void transposeSelf()
     {
         // The new data for the matrix
-        decimal[,] newData = new decimal[this.mColCount, this.mRowCount];
+        decimal[][] newData = new decimal[this.mColCount][];
+        for (int col = 0; col < this.mColCount; col++)
+        {
+            newData[col] = new decimal[this.mRowCount];
+        }
 
         // Switch column and row
         for (int oldRow = 0; oldRow < this.mRowCount; oldRow++)
         {
             for (int oldCol = 0; oldCol < this.mColCount; oldCol++)
             {
-                newData[oldCol, oldRow] = this.mData[oldRow, oldCol];
+                newData[oldCol][oldRow] = this.mData[oldRow][oldCol];
             }
         }
 
         // Assign new data
         this.mData = newData;
-        this.mRowCount = newData.GetUpperBound(0);
-        this.mColCount = newData.GetUpperBound(1);
+        this.mRowCount = newData.Length;
+        this.mColCount = newData[0].Length;
 
     }
+
+
 
 }
