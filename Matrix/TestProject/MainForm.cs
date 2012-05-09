@@ -43,9 +43,13 @@ namespace TestProject
                 //new decimal[] {2, -4, 1, 0, 5},
                 //new decimal[] {1, -2, 2, -3, 4},
 
-                new decimal[] {1, 1, -1, 4},
-                new decimal[] {2, 1, 3, 0},
-                new decimal[] {0, 1, -5, 8},
+                //new decimal[] {1, 1, -1, 4},
+                //new decimal[] {2, 1, 3, 0},
+                //new decimal[] {0, 1, -5, 8},
+
+                new decimal[] {0, 0, 0, 0},
+                new decimal[] {0, 0, 0, 0},
+                new decimal[] {0, 0, 0, 0},
 
             });
 
