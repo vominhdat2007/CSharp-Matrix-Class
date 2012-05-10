@@ -140,10 +140,10 @@ public partial class Matrix
     //===============================================================================//
     
     /// <summary>
-    /// Check if the row index is valid. Throw a exception if it is not.
+    /// Validate if the row index is valid. Throw an exception if it is not.
     /// </summary>
     /// <param name="pColumn"></param>
-    public void validateRow(int pRow)
+    protected void validateRow(int pRow)
     {
         if (pRow < 0)
             throw new ArgumentException("The row index must be a non-negative integer.");
@@ -152,15 +152,35 @@ public partial class Matrix
     }
 
     /// <summary>
-    /// Check if the row index is valid. Throw a exception if it is not.
+    /// Validate if the row index is valid. Throw an exception if it is not.
     /// </summary>
     /// <param name="pColumn"></param>
-    public void validateColumn(int pColumn)
+    protected void validateColumn(int pColumn)
     {
         if (pColumn < 0)
             throw new ArgumentException("The column index must be a non-negative integer.");
         if (pColumn >= this.mColCount)
             throw new ArgumentException("The column index must be smaller than the number of numbers.");
+    }
+
+    /// <summary>
+    /// Validate if this matrix is a square matrix. Throw an exception if it is not.
+    /// </summary>
+    protected void validateSquareMatrix()
+    {
+        if (!this.isSquareMatrix())
+            throw new InvalidOperationException("This matrix is not a square matrix.");
+    }
+
+    /// <summary>
+    /// Validate if this matrix and the other matrix have the same sizes.
+    /// Throw an exception if they are not.
+    /// </summary>
+    /// <param name="pOtherMatrix">The matrix to be performed validation.</param>
+    protected void validateSameSizeMatrix(Matrix pOtherMatrix)
+    {
+        if (this.mRowCount != pOtherMatrix.mRowCount || this.mColCount != pOtherMatrix.mColCount)
+            throw new InvalidOperationException("The two matrices don't have the same sizes.");
     }
 
     //===============================================================================//
@@ -215,6 +235,43 @@ public partial class Matrix
 
         // Set value
         this.mData[pRow][pColumn] = pValue;
+    }
+
+    /// <summary>
+    /// Get a row of this matrix.
+    /// </summary>
+    /// <param name="pRow">The index of the row.</param>
+    /// <returns>The decimal array contains the value of the row.</returns>
+    public decimal[] getRow(int pRow)
+    {
+        // Validate
+        this.validateRow(pRow);
+
+        // Return
+        return this.mData[pRow];
+    }
+
+    /// <summary>
+    /// Get a column of this matrix.
+    /// </summary>
+    /// <param name="pColumn">The index of the column.</param>
+    /// <returns>The decimal array contains the value of the column.</returns>
+    public decimal[] getColumn(int pColumn)
+    {
+        // Validate
+        this.validateColumn(pColumn);
+
+        // Initialize
+        decimal[] result = new decimal[this.mRowCount];
+
+        // Set value
+        for (int row = 0; row < this.mRowCount; row++)
+        {
+            result[row] = this.mData[row][pColumn];
+        }
+
+        // Return
+        return result;
     }
 
 }

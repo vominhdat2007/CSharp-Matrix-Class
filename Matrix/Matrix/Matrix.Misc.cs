@@ -8,22 +8,39 @@ public partial class Matrix
     //===============================================================================//
     // Constants
     //===============================================================================//
-
-    private const decimal EPSILON = (decimal)0.00000000001;
-    private const int ROUND_DECIMAL = 10;
+    
+    private const int ROUND_DECIMAL = 15;
 
     //===============================================================================//
     // Comparison
     //===============================================================================//
-
-    private bool isEqual(decimal pNum1, decimal pNum2)
-    {
-        return Math.Abs(pNum1 - pNum2) < EPSILON;
-    }
-
+    
     private decimal round(decimal pNumber)
     {
         return Math.Round(pNumber, ROUND_DECIMAL);
+    }
+
+    //===============================================================================//
+    // Mathematic Operators
+    //===============================================================================//
+
+    private decimal dotProduct(decimal[] pVector1, decimal[] pVector2)
+    {
+        // Validate size
+        if (pVector1.Length != pVector2.Length)
+            throw new ArgumentException("The length of two vector to perform dot production must be the same.");
+
+        // Initialize
+        decimal result = 0;
+
+        // Calculate each element
+        for (int element = 0; element < pVector1.Length; element++)
+        {
+            result += pVector1[element] * pVector2[element];
+        }
+
+        // Return result
+        return result;
     }
 
     //===============================================================================//

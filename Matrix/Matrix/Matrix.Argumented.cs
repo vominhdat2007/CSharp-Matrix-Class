@@ -227,24 +227,33 @@ public partial class Matrix
         Matrix result = this.getRowEchelonFormMatrix();
 
         // Initialize variables
-        int firstNonAllZeroRow = this.mRowCount - 1;
+        int lastNonAllZeroRow = this.mRowCount - 1;
+        int firstNonZeroElement = 0;
 
         // Find first non-all-zero row
-        while (firstNonAllZeroRow >= 0 && this.getFirstNonZeroElementInRow(firstNonAllZeroRow) == -1) 
-            firstNonAllZeroRow--;
+        while (lastNonAllZeroRow >= 0 && this.getFirstNonZeroElementInRow(lastNonAllZeroRow) == -1) 
+            lastNonAllZeroRow--;
 
         // If the matrix is all 0: already reduced row echelon
-        if (firstNonAllZeroRow == -1)
+        if (lastNonAllZeroRow == -1)
             return result;
 
         // Process with every upper row
-        for (int row = firstNonAllZeroRow - 1; row >= 0; row--)
+        for (int row = lastNonAllZeroRow; row >= 0; row--)
         {
-            
+            // Get the index of leading 1
+            firstNonZeroElement = result.getFirstNonZeroElementInRow(row);
+
+            // For every upper row that has the value different than 0
+            for (int upperRow = row - 1; upperRow >= 0; upperRow--)
+            {
+                if (result.mData[upperRow][firstNonZeroElement] != 0)
+                    result.argumentedAddRow(upperRow, row, -result.mData[upperRow][firstNonZeroElement]);
+            }
         }
 
         // Return result
         return result;
     }
-
+    
 }

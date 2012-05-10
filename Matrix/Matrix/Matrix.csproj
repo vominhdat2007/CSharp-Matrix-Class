@@ -39,10 +39,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Matrix.Argumented.cs" />
+    <Compile Include="Matrix.BasicOperators.cs" />
     <Compile Include="Matrix.cs" />
+    <Compile Include="Matrix.Generator.cs" />
     <Compile Include="Matrix.Misc.cs" />
+    <Compile Include="Matrix.NewObjectOperators.cs" />
+    <Compile Include="Matrix.Other.cs" />
     <Compile Include="Matrix.SelfOperatos.cs" />
-    <Compile Include="Matrix.SpecialForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

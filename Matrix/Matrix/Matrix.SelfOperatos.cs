@@ -16,8 +16,7 @@ public partial class Matrix
     public void addSelf(Matrix pSecondMatrix)
     {
         // Check if the second matrix is valid for addition
-        if (this.mColCount != pSecondMatrix.mColCount || this.mRowCount != pSecondMatrix.mRowCount)
-            throw new ArgumentException("The second matrix doesn't have the same number of rows and columns.");
+        this.validateSameSizeMatrix(pSecondMatrix);
         
         // Add every element of this matrix with the other matrix
         for (int row = 0; row < this.mRowCount; row++)
@@ -25,6 +24,25 @@ public partial class Matrix
             for (int col = 0; col < this.mColCount; col++)
             {
                 this.mData[row][col] += pSecondMatrix.mData[row][col];
+            }
+        }
+    }
+
+    /// <summary>
+    /// Subtract this matrix with another matrix. This instance will hold the result.
+    /// </summary>
+    /// <param name="pSecondMatrix">The matrix to perform subtraction.</param>
+    public void subtractSelf(Matrix pSecondMatrix)
+    {
+        // Check if the second matrix is valid for subtraction
+        this.validateSameSizeMatrix(pSecondMatrix);
+
+        // Subtract every element of this matrix by the other matrix
+        for (int row = 0; row < this.mRowCount; row++)
+        {
+            for (int col = 0; col < this.mColCount; col++)
+            {
+                this.mData[row][col] -= pSecondMatrix.mData[row][col];
             }
         }
     }
@@ -72,7 +90,5 @@ public partial class Matrix
         this.mColCount = newData[0].Length;
 
     }
-
-
 
 }
